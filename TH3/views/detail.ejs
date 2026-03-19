@@ -1,0 +1,22 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+<main>
+    <article class="detail">
+        <h1><%= experience.title %></h1>
+        <p class="meta"><strong><%= experience.organization %></strong> | <%= experience.period %></p>
+
+        <% if (experience.hot) { %>
+            <span class="badge hot">🔥 Dự án/Công bố nổi bật</span>
+        <% } %>
+
+        <div class="content">
+            <p><%= experience.description %></p>
+            <!-- Có thể thêm chi tiết hơn nếu có dữ liệu mở rộng -->
+        </div>
+
+        <p class="back-link"><a href="/list">← Quay lại hành trình</a></p>
+    </article>
+</main>
+
+<%- include('layouts/footer') %>
