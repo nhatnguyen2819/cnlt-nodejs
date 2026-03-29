@@ -1,0 +1,26 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+<main>
+    <h1>Hành trình & Kinh nghiệm</h1>
+    <p class="subtitle">Từ nghiên cứu học thuật đến ứng dụng thực tế.</p>
+
+    <div class="timeline">
+        <% experiences.forEach(exp => { %>
+            <div class="timeline-item">
+                <h2><a href="/detail/<%= exp.id %>"><%= exp.title %></a></h2>
+                <p class="meta"><%= exp.organization %> | <%= exp.period %></p>
+                <p><%= exp.description.length > 150 ? exp.description.substring(0, 150) + '...' : exp.description %></p>
+                <% if (exp.hot) { %>
+                    <span class="badge hot">🔥 Nổi bật</span>
+                <% } else { %>
+                    <span class="badge normal">Bình thường</span>
+                <% } %>
+                <p><a href="/detail/<%= exp.id %>" class="read-more">Đọc chi tiết →</a></p>
+            </div>
+            <hr>
+        <% }); %>
+    </div>
+</main>
+
+<%- include('layouts/footer') %>

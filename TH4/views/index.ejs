@@ -1,0 +1,43 @@
+<%- include('layouts/header') %>
+<%- include('layouts/navbar') %>
+
+<main>
+    <section class="hero">
+        <h1>Hello, I'm </h1>
+        <p class="tagline">AI & Machine Learning Researcher | Data Scientist</p>
+        <a href="/contact" class="btn">Get in Touch</a>
+    </section>
+
+    <section class="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <p><strong>AI & Machine Learning Researcher and Engineer</strong> with strong expertise in Deep Learning, Computer Vision, and Drug Discovery. Experienced in designing end-to-end research pipelines and building production-ready AI systems.</p>
+            <p>Skilled in Python, SQL, PyTorch, TensorFlow, distributed training, data preprocessing, and model optimization, supported by a solid foundation in probability, statistics, and hypothesis testing.</p>
+            <ul class="info-list">
+                <li><strong>Full Name:</strong> Nguyen Nhat Nguyen</li>
+                <li><strong>Date of Birth:</strong> November 19, 2005</li>
+                <li><strong>Location:</strong> Quy Nhon City, Vietnam</li>
+                <li><strong>Email:</strong> Nguyen@example.com (liên hệ qua form)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="featured">
+        <h2>Những dấu mốc nổi bật</h2>
+        <div class="featured-grid">
+            <% featuredExperiences.forEach(exp => { %>
+                <div class="featured-card">
+                    <h3><a href="/blogposts/<%= exp.id %>"><%= exp.title %></a></h3>
+                    <p class="period"><%= exp.period %></p>
+                    <p><%= exp.description.substring(0, 100) %>...</p>
+                    <% if (exp.hot) { %>
+                        <span class="badge hot">🔥 Nổi bật</span>
+                    <% } %>
+                </div>
+            <% }); %>
+        </div>
+        <p class="view-all"><a href="/list">Xem toàn bộ hành trình →</a></p>
+    </section>
+</main>
+
+<%- include('layouts/footer') %>

@@ -1,0 +1,82 @@
+<%- include('layouts/header', { title: 'Giới thiệu' }) %>
+
+<div class="about-page">
+    <h1>Hello, I'm Nguyen Nhat Nguyen</h1>
+    <p class="tagline">AI & Machine Learning Researcher | Data Scientist</p>
+    <a href="/blogposts/new" class="btn">Get in Touch</a>
+
+    <section class="about-me">
+        <h2>About Me</h2>
+        <p><strong>AI & Machine Learning Researcher and Engineer</strong> with strong expertise in Deep Learning, Computer Vision, and Drug Discovery. Experienced in designing end-to-end research pipelines and building production-ready AI systems.</p>
+        <p>Skilled in Python, SQL, PyTorch, TensorFlow, distributed training, data preprocessing, and model optimization, supported by a solid foundation in probability, statistics, and hypothesis testing. My work spans academic research and real-world engineering — integrating rigorous experimentation, reproducibility, and systems-level thinking to develop high-impact AI solutions.</p>
+        <ul class="info-list">
+            <li><strong>Full Name:</strong> Duong Chi Trung</li>
+            <li><strong>Date of Birth:</strong> November 11, 2004</li>
+            <li><strong>Gender:</strong> Male</li>
+            <li><strong>Location:</strong> Ho Chi Minh City, Vietnam</li>
+            <li><strong>Phone:</strong> +84 337 571 104</li>
+        </ul>
+    </section>
+
+    <section class="education">
+        <h2>Education</h2>
+        <div class="card">
+            <h3>Industry University of Ho Chi Minh City (IUH)</h3>
+            <p class="meta">09/2022 - Present | Major: Data Science</p>
+            <p>GPA: 3.58/4.0 | TOEIC: 695</p>
+            <p>Received scholarships for academic excellence</p>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h2>Experience</h2>
+        <div class="card">
+            <h3>AI Engineer</h3>
+            <p class="meta">01/2026 - Present | BlueBolt Software, Vietnam</p>
+            <ul>
+                <li>Designed an end-to-end YOLO-based computer vision pipeline for real-time card corner detection in production environments. Implemented robust dataset validation and augmentation strategies to handle motion blur, glare, noise, and compression artifacts from surveillance stream processing.</li>
+                <li>Optimized training and inference across GPU environments (AMP, batch tuning, multi-worker data loading) to ensure stable and efficient deployment. (The practical requirement demands 100% accuracy in real-world test scenarios under operational constraints.).</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>AI Research Internship</h3>
+            <p>Excellent project under the guidance of Professor Wen-Nung Lie. In-depth research on single-image 3D Human Mesh Reconstruction using diffusion methods to generate multi-hypothesis, focusing on high-resolution models (over 6,800 vertices) and improving mesh realism through optimizing the prediction of joint, pose, and shape parameters.</p>
+            <p>Proposed ScoreNet-X, a new architecture for multi-hypothesis scoring in 3D Human Mesh Reconstruction include 4 main block: Normalization, MeshTokenizer, and a GraphFormer-based backbone, and implementing a Dual-head scoring mechanism for ranking and regression tasks. I conducted extensive experiments on the H36M and 3DPW benchmarks, achieving a 3–4% improvement in MPJPE & MPVE error while reducing model size and computation by more than 80%.</p>
+        </div>
+        <div class="card">
+            <h3>Brain Research Consultants</h3>
+            <ul>
+                <li>Focus on researching and developing Alphas (models predicting equity market price movements), followed by statistical analysis to assess outcomes through hypothesis testing.</li>
+                <li>Employing computer programming to automate repetitive tasks and leverage the capabilities.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="publications">
+        <h2>Publications</h2>
+        <div class="card">
+            <h3>Multidimensional Vector Ranking Algorithm for The Group Recommendation System</h3>
+            <p class="meta">2025 | International Conference on Computational Collective Intelligence (ICCCI 2025). Published by Springer CCIS.</p>
+            <p>Researched and proposed a novel ReLU-based multidimensional vector ranking algorithm for group recommendation systems, enabling data-driven weight inference among users without predefined preferences.</p>
+        </div>
+        <div class="card">
+            <h3>A Deep Learning Model for Drug-Target Interactions Prediction in Drug Discovery</h3>
+            <p class="meta">2025 | International Symposium on Information and Communication Technology (SOICT 2025). Published by Springer CCIS.</p>
+            <p>Researched and proposed a deep learning model based on LSTM combined with Attention, which is capable of predicting drug-protein binding affinity directly from SMILES and amino acid sequences, outperforming CNN-based baselines such as DeepDTA on the KIBA dataset. Contributing to data-driven drug discovery and virtual screening studies.</p>
+        </div>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>Python (Data Science, Automation, Scripting)</li>
+            <li>SQL</li>
+            <li>Machine Learning & Deep Learning (Scikit-learn, PyTorch, TensorFlow), Statistical Modeling</li>
+            <li>Data Visualization (Matplotlib, Seaborn, Tableau)</li>
+            <li>Financial & Quantitative Analysis (Alpha Design, Market Research)</li>
+            <li>Tools: Git, LangGraph, Langchain, Hugging Face, Google Colab</li>
+        </ul>
+    </section>
+</div>
+
+<%- include('layouts/footer') %>

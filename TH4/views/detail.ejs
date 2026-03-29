@@ -1,0 +1,14 @@
+<%- include('layouts/header', { title: experience.title }) %>
+<div class="post-detail">
+    <h2><%= experience.title %></h2>
+    <p class="meta">Thời gian: <%= experience.period %> | <%= experience.organization %></p>
+    <div class="content"><%= experience.description %></div>
+    <% if (experience.hot) { %>
+        <span class="badge hot">🔥 Nổi bật</span>
+    <% } %>
+    <div class="actions">
+        <a href="/" class="btn">← Về trang chủ</a>
+        <a href="/list" class="btn">← Về danh sách</a>
+    </div>
+</div>
+<%- include('layouts/footer') %>

@@ -1,0 +1,19 @@
+<%- include('layouts/header', { title: 'Sửa bài viết' }) %>
+<div class="edit-form">
+    <h2>✏️ Sửa bài viết</h2>
+    <form action="/blogposts/update/<%= post._id %>" method="POST">
+        <div class="form-group">
+            <label>Tiêu đề</label>
+            <input type="text" name="title" value="<%= post.title %>" required>
+        </div>
+        <div class="form-group">
+            <label>Nội dung</label>
+            <textarea name="body" rows="10" required><%= post.body %></textarea>
+        </div>
+        <button type="submit" class="btn">Cập nhật</button>
+    </form>
+    <div class="back-link">
+        <p><a href="/">← Về trang chủ</a></p>
+    </div>
+</div>
+<%- include('layouts/footer') %>

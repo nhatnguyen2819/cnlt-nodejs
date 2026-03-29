@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.22.1",
+    "mongoose": "^9.3.3"
+  },
+  "name": "blog-ca-nhan",
+  "version": "1.0.0",
+  "description": "Bài thực hành số 3 - Blog cá nhân",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
