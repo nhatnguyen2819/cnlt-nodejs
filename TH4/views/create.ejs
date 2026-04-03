@@ -1,7 +1,7 @@
 <%- include('layouts/header', { title: 'Tạo bài viết mới' }) %>
 <div class="create-form">
     <h2>Tạo bài viết mới</h2>
-    <form action="/blogposts/store" method="POST">
+    <form action="/blogposts/store" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label>Tiêu đề</label>
             <input type="text" name="title" required>
@@ -9,6 +9,10 @@
         <div class="form-group">
             <label>Nội dung</label>
             <textarea name="body" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <label>Hình ảnh (tùy chọn)</label>
+            <input type="file" name="image" accept="image/*">
         </div>
         <button type="submit" class="btn">Lưu bài viết</button>
     </form>

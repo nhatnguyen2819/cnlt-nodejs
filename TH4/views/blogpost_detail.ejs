@@ -1,0 +1,22 @@
+<%- include('layouts/header', { title: title }) %>
+<%- include('layouts/navbar') %>
+
+<main>
+    <div class="post-detail">
+        <h2><%= post.title %></h2>
+        <% if (post.image) { %>
+            <img src="/images/<%= post.image %>" alt="<%= post.title %>" style="max-width: 100%; height: auto;">
+        <% } %>
+        <p class="post-meta">Tạo: <%= post.createdAt.toLocaleString() %> | Cập nhật: <%= post.updatedAt ? post.updatedAt.toLocaleString() : 'Chưa cập nhật' %></p>
+        <div class="content"><%- post.body %></div>
+        <div class="actions">
+            <a href="/blogposts" class="btn">← Về danh sách</a>
+            <a href="/blogposts/edit/<%= post._id %>" class="btn">Sửa bài</a>
+            <form action="/blogposts/delete/<%= post._id %>" method="POST" style="display:inline;">
+                <button type="submit" class="btn danger">Xóa bài</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<%- include('layouts/footer') %>

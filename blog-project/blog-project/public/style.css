@@ -1,0 +1,500 @@
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* ============================================
+   LAYOUT & CONTAINER
+   ============================================ */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1.1em;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 2px solid #e0e0e0;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-link.btn-create {
+  background: #28a745;
+  color: white;
+  font-weight: 600;
+}
+
+.nav-link.btn-create:hover {
+  background: #218838;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.main {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.empty-state p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.empty-state a {
+  color: #667eea;
+  font-weight: 600;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 5px;
+}
+
+/* ============================================
+   POSTS GRID
+   ============================================ */
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   POST CARD
+   ============================================ */
+
+.post-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 4px solid #667eea;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.post-header {
+  margin-bottom: 15px;
+}
+
+.post-title {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.post-title a {
+  color: #667eea;
+}
+
+.post-title a:hover {
+  color: #764ba2;
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #999;
+  display: block;
+}
+
+.post-preview {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.post-preview p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ============================================
+   POST DETAIL
+   ============================================ */
+
+.post-detail {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease;
+}
+
+.post-detail-header {
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.post-detail-title {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.post-detail-meta {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  color: #999;
+  font-size: 0.95em;
+}
+
+.post-detail-meta time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-detail-content {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 40px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.post-detail-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form-container {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-container h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1.05em;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.form-input,
+.form-textarea {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-input {
+  height: 45px;
+}
+
+.form-textarea {
+  min-height: 200px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: #667eea;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: #e74c3c;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 12px 30px;
+  font-size: 1.1em;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background: #f8f9fa;
+  border-top: 2px solid #e0e0e0;
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 0.95em;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .header p {
+    font-size: 1em;
+  }
+
+  .nav {
+    gap: 10px;
+  }
+
+  .nav-link {
+    padding: 8px 15px;
+    font-size: 0.95em;
+  }
+
+  .main {
+    padding: 20px 15px;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-detail {
+    padding: 20px;
+  }
+
+  .post-detail-title {
+    font-size: 1.8em;
+  }
+
+  .post-detail-meta {
+    gap: 15px;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .post-detail-actions {
+    flex-direction: column;
+  }
+
+  .post-detail-actions .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 30px 15px;
+  }
+
+  .header h1 {
+    font-size: 1.6em;
+  }
+
+  .header p {
+    font-size: 0.95em;
+  }
+
+  .post-title {
+    font-size: 1.2em;
+  }
+
+  .post-detail-title {
+    font-size: 1.4em;
+  }
+
+  .post-detail-content {
+    font-size: 1em;
+  }
+}

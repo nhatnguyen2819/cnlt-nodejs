@@ -1,7 +1,7 @@
 <%- include('layouts/header', { title: 'Sửa bài viết' }) %>
 <div class="edit-form">
     <h2>✏️ Sửa bài viết</h2>
-    <form action="/blogposts/update/<%= post._id %>" method="POST">
+    <form action="/blogposts/update/<%= post._id %>" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label>Tiêu đề</label>
             <input type="text" name="title" value="<%= post.title %>" required>
@@ -9,6 +9,13 @@
         <div class="form-group">
             <label>Nội dung</label>
             <textarea name="body" rows="10" required><%= post.body %></textarea>
+        </div>
+        <div class="form-group">
+            <label>Hình ảnh (tùy chọn - thay thế hình cũ nếu chọn)</label>
+            <input type="file" name="image" accept="image/*">
+            <% if (post.image) { %>
+                <p>Hình hiện tại: <img src="/images/<%= post.image %>" alt="Current image" style="max-width: 200px;"></p>
+            <% } %>
         </div>
         <button type="submit" class="btn">Cập nhật</button>
     </form>

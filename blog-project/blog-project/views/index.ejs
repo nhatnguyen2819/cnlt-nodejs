@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Trang chủ</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📝 Blog Của Tôi</h1>
+      <p>Chia sẻ những suy nghĩ và kinh nghiệm của tôi</p>
+    </header>
+
+    <nav class="nav">
+      <a href="/" class="nav-link active">Trang chủ</a>
+      <a href="/blogposts/new" class="nav-link btn-create">+ Viết bài mới</a>
+    </nav>
+
+    <main class="main">
+      <% if (posts.length === 0) { %>
+        <div class="empty-state">
+          <p>Chưa có bài viết nào. 
+            <a href="/blogposts/new">Tạo bài viết đầu tiên</a>
+          </p>
+        </div>
+      <% } else { %>
+        <div class="posts-grid">
+          <% posts.forEach(post => { %>
+            <article class="post-card">
+              <div class="post-header">
+                <h2 class="post-title">
+                  <a href="/blogposts/<%= post._id %>">
+                    <%= post.title %>
+                  </a>
+                </h2>
+                <time class="post-date">
+                  <%= new Date(post.createdAt).toLocaleDateString('vi-VN', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  }) %>
+                </time>
+              </div>
+              
+              <div class="post-preview">
+                <p><%= post.body.substring(0, 150) %>...</p>
+              </div>
+
+              <div class="post-actions">
+                <a href="/blogposts/<%= post._id %>" class="btn btn-primary">Đọc tiếp</a>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+      <% } %>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 Blog cơ bản với Node.js + MongoDB</p>
+    </footer>
+  </div>
+</body>
+</html>

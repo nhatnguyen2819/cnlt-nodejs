@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post.title %> - Blog</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📝 Blog Của Tôi</h1>
+      <p>Chia sẻ những suy nghĩ và kinh nghiệm của tôi</p>
+    </header>
+
+    <nav class="nav">
+      <a href="/" class="nav-link">Trang chủ</a>
+      <a href="/blogposts/new" class="nav-link btn-create">+ Viết bài mới</a>
+    </nav>
+
+    <main class="main">
+      <article class="post-detail">
+        <div class="post-detail-header">
+          <h1 class="post-detail-title"><%= post.title %></h1>
+          
+          <div class="post-detail-meta">
+            <time>
+              📅 Đăng: <%= new Date(post.createdAt).toLocaleDateString('vi-VN', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+              }) %>
+            </time>
+            <% if (post.updatedAt > post.createdAt) { %>
+              <time>
+                ✏️ Cập nhật: <%= new Date(post.updatedAt).toLocaleDateString('vi-VN', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric'
+                }) %>
+              </time>
+            <% } %>
+          </div>
+        </div>
+
+        <div class="post-detail-content">
+          <p><%= post.body %></p>
+        </div>
+
+        <div class="post-detail-actions">
+          <a href="/" class="btn btn-secondary">← Quay lại</a>
+          <a href="/blogposts/<%= post._id %>/edit" class="btn btn-primary">✏️ Chỉnh sửa</a>
+          
+          <form action="/blogposts/<%= post._id %>/delete" method="POST" style="display: inline;">
+            <button 
+              type="submit" 
+              class="btn btn-danger"
+              onclick="return confirm('Bạn có chắc chắn muốn xóa bài viết này?');"
+            >
+              🗑️ Xóa
+            </button>
+          </form>
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 Blog cơ bản với Node.js + MongoDB</p>
+    </footer>
+  </div>
+</body>
+</html>

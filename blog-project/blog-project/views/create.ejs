@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Tạo bài viết mới</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>📝 Blog Của Tôi</h1>
+      <p>Chia sẻ những suy nghĩ và kinh nghiệm của tôi</p>
+    </header>
+
+    <nav class="nav">
+      <a href="/" class="nav-link">Trang chủ</a>
+      <a href="/blogposts/new" class="nav-link active btn-create">+ Viết bài mới</a>
+    </nav>
+
+    <main class="main">
+      <div class="form-container">
+        <h2>Tạo bài viết mới</h2>
+        
+        <form action="/blogposts/store" method="POST" class="form">
+          <div class="form-group">
+            <label for="title">Tiêu đề bài viết <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="title"
+              name="title" 
+              placeholder="Nhập tiêu đề bài viết"
+              required
+              class="form-input"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="body">Nội dung bài viết <span class="required">*</span></label>
+            <textarea 
+              id="body"
+              name="body" 
+              placeholder="Nhập nội dung bài viết của bạn..."
+              required
+              rows="10"
+              class="form-textarea"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg">💾 Lưu bài viết</button>
+            <a href="/" class="btn btn-secondary btn-lg">Hủy</a>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 Blog cơ bản với Node.js + MongoDB</p>
+    </footer>
+  </div>
+</body>
+</html>

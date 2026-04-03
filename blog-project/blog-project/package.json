@@ -1,0 +1,21 @@
+{
+  "name": "blog-project",
+  "version": "1.0.0",
+  "description": "Ứng dụng blog cơ bản với Node.js và MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["blog", "nodejs", "mongodb"],
+  "author": "Student",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "ejs": "^3.1.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
