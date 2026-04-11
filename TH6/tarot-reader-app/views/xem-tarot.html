@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem Tarot Online Chuyên Nghiệp - Tarot Reader</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">TAROT READER<span>✦</span></div>
+        <nav>
+            <ul>
+                <li><a href="/xem-tarot">XEM TAROT</a></li>
+                <li><a href="/">Ý NGHĨA LÁ BÀI</a></li>
+                <li><a href="/blogs">BLOGS</a></li>
+                <li><a href="/">SHOP</a></li>
+                <li><a href="/">GIỚI THIỆU</a></li>
+                <li><a href="/">LIÊN HỆ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-tarot-section">
+        <h2> CÂU HỎI CỦA BẠN <br>TRẢI BÀI TAROT</h2>
+
+        <div class="search-box">
+            <form action="/api/read" method="POST">
+                <input type="hidden" name="name" value="Khách Ẩn Danh">
+                <input type="text" name="question" placeholder="Vấn đề bạn đang phân vân..." required>
+                <button type="submit" class="icon-submit">➤</button>
+            </form>
+        </div>
+
+        <div class="suggestion-chips">
+            <button class="chip" onclick="document.querySelector('input[name=question]').value=this.innerText">Tình
+                duyên của mình trong thời gian tới thế nào?</button>
+            <button class="chip" onclick="document.querySelector('input[name=question]').value=this.innerText">Công việc
+                thời gian tới của mình có thay đổi gì không?</button>
+            <button class="chip" onclick="document.querySelector('input[name=question]').value=this.innerText">Bạn ấy có
+                để ý đến mình / có tình cảm với mình không?</button>
+            <button class="chip" onclick="document.querySelector('input[name=question]').value=this.innerText">Mối quan
+                hệ này có tiến triển gì không / nên buông hay giữ?</button>
+        </div>
+
+        <p class="free-turns">Hôm nay bạn còn <span class="highlight-gold">3</span> lượt trải bài miễn phí</p>
+    </div>
+
+    <section class="products-section">
+        <h3><span class="star-icon">✦</span> GỢI Ý DÀNH RIÊNG CHO BẠN</h3>
+        <p class="products-subtext">Khám phá những vật phẩm tâm linh phù hợp với năng lượng hiện tại của bạn giúp thu
+            hút may mắn và bình an</p>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="images/vong-tay-phong-thuy-dep-1.jpg" alt="Vòng Tay Phong Thủy">
+                <h4>Vòng Tay Phong Thủy Hỗ Trợ Tình Duyên</h4>
+                <p>350.000₫</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&q=80&w=250"
+                    alt="Vòng Bạc">
+                <h4>Lắc Tay Bạc S925 May Mắn Năng Lượng</h4>
+                <p>420.000₫</p>
+            </div>
+            <div class="product-card">
+                <img src="images/OIP.jpg" alt="Bộ bài Tarot">
+                <h4>Bộ Bài Tarot Cổ Điển Cơ Bản</h4>
+                <p>550.000₫</p>
+            </div>
+            <div class="product-card">
+                <img src="images/OIP (1).jpg" alt="Bộ Bài Oracle">
+                <h4>Bộ Bài Oracle Thông Điệp Vũ Trụ</h4>
+                <p>450.000₫</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="seo-article">
+        <h3>BÓI BÀI TAROT ONLINE CHÍNH XÁC VỚI 3 BƯỚC ĐƠN GIẢN - TAROTREADER.ME</h3>
+        <p>Bói bài tarot online cung cấp cái nhìn sâu sắc và có được dự đoán để hỗ trợ thêm lựa chọn ra quyết định. Nếu
+            bạn không rành, bạn có thể nhận thông điệp qua TarotReader.me. Nơi mang đến cho bạn những dự đoán từ tình
+            cảm tới công việc và những khía cạnh trong tương lai.</p>
+
+        <h4>BÓI BÀI TAROT ONLINE LÀ GÌ?</h4>
+        <p>Bói bài Tarot là ứng dụng bộ bài Tarot dựa trên sự phát triển của công nghệ để dự đoán tương lai theo cách bí
+            ẩn và tiện lợi nhất.</p>
+        <ul>
+            <li>Tiện lợi truy cập mọi lúc mọi nơi</li>
+            <li>Độ chính xác cao</li>
+            <li>Hoàn toàn miễn phí</li>
+            <li>Lấy thông điệp chi tiết của mỗi lá bài một cách nhanh chóng</li>
+        </ul>
+
+        <h4>Ý NGHĨA CÁC LÁ BÀI TAROT</h4>
+        <img src="https://images.unsplash.com/photo-1589174548777-6bc8e612ed8f?auto=format&fit=crop&q=80&w=800"
+            alt="Bài Tarot" style="width:100%; border-radius:8px; margin: 15px 0;">
+        <p>Mỗi lá bài chứa đựng những thông điệp và biểu tượng riêng...</p>
+
+        <h4>CÁCH XEM BÓI BÀI TAROT ONLINE HIỆU QUẢ</h4>
+        <p>Để đạt được hiệu quả tốt nhất, hãy tạo không gian riêng tĩnh lặng và chọn nền tảng uy tín.</p>
+
+        <h4>CHỌN NỀN TẢNG UY TÍN</h4>
+        <p>Nơi đảm bảo nội dung kiến thức được chọn lọc cẩn thận và tính bảo mật cao.</p>
+
+        <h4>ĐẶT CÂU HỎI CỤ THỂ</h4>
+        <p>Câu hỏi càng chi tiết, kết quả Tarot càng cụ thể:</p>
+        <ul>
+            <li>"Mối quan hệ này có tương lai hay không?"</li>
+            <li>"Thay vì nhận định một mặt, hãy hỏi cả hai hướng đi..."</li>
+        </ul>
+
+        <h4>TẬP TRUNG NĂNG LƯỢNG</h4>
+        <p>Hãy hít thở để làm dịu tâm trí trước khi đặt câu hỏi...</p>
+
+        <h3>HƯỚNG DẪN XEM BÓI BÀI TAROT TẠI TAROTREADER.ME</h3>
+        <h4>BƯỚC 1: ĐẶT CÂU HỎI CHO TRẢI BÀI</h4>
+        <p>Bắt đầu để một câu hỏi rõ ràng. Chọn một chủ đề đang ảnh hưởng lên suy nghĩ của bạn nhiều nhất.</p>
+
+        <h4>BƯỚC 2: TẬP TRUNG NĂNG LƯỢNG VÀO CÂU HỎI, TRẢI BÀI VÀ CHỌN LÁ BÀI</h4>
+        <p>Suy nghĩ thật kỹ câu hỏi. Sau đó nhấp vào thông điệp bên trên và chờ đợi màn trải bài.</p>
+
+        <h4>BƯỚC 3: XEM Ý NGHĨA</h4>
+        <p>TarotReader sẽ tự động hiển thị ý nghĩa giải mã, giúp bạn hiểu rõ nguyên tắc đang xảy ra trong hoàn cảnh hiện
+            tại.</p>
+
+        <h3>CÁC CHỦ ĐỀ PHỔ BIẾN TRONG BÓI BÀI TAROT</h3>
+        <h4>TRẢI BÀI TAROT CHO TÌNH YÊU</h4>
+        <p>Bài Tarot là công cụ hữu ích nhất chỉ ra được sự kỳ diệu trong các mối quan hệ tình cảm.</p>
+
+        <h4>BÓI BÀI TAROT VỀ SỰ NGHIỆP</h4>
+        <p>Lý giải nguyên nhân tại sao sự nghiệp của bạn đang dừng chững hoặc đang tìm hướng đi mới.</p>
+
+        <h4>TRẢI BÀI TAROT VỀ TÀI CHÍNH</h4>
+        <p>Chỉ thời điểm thích hợp và cách quản lý tiền bạc để giải quyết vấn đề ngân sách và rủi ro.</p>
+
+        <h4>BÓI BÀI TAROT DỰ ĐOÁN TƯƠNG LAI</h4>
+        <p>Mang đến cái nhìn tổng quan về tương lai, xem những thông điệp giúp bạn hiểu được bước đi sắp tới.</p>
+
+        <h4>GIẢI ĐÁP VẤN ĐỀ GIA ĐÌNH QUA BÀI TAROT</h4>
+        <p>Sự cân bằng tình cảm gia đình giúp ta tránh những xung đột, Tarot sẽ đưa cho bạn góc nhìn đa chiều.</p>
+
+        <h4>HỌC BÓI BÀI TAROT CƠ BẢN DÀNH CHO NGƯỜI MỚI</h4>
+        <p>Tìm hiểu các khái niệm, quy trình và nền tảng kiến thức cơ bản.</p>
+
+        <h4>KẾT LUẬN</h4>
+        <p>Hãy bắt đầu trải nghiệm thế giới của Tarot và lắng nghe những lời khuyên đến từ tâm trí của chính mình.</p>
+    </section>
+
+    <footer class="extended-footer">
+        <div class="footer-col">
+            <h4>THÔNG TIN LIÊN HỆ</h4>
+            <ul>
+                <li><a href="#">📧 Email: hotro@tarotreader.me</a></li>
+                <li><a href="#">📞 Điện thoại: 0123 456 789</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>LIÊN KẾT NHANH</h4>
+            <ul>
+                <li><a href="/xem-tarot">Xem Tarot</a></li>
+                <li><a href="#">Giải mã lá bài</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Chính sách & Bảo mật</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div
+        style="background-color:#050505; text-align:center; padding: 20px; font-size:12px; color:#666; border-top:1px solid #1a1a1a;">
+        &copy; 2026 TAROTREADER.ME. ALL RIGHTS RESERVED.
+    </div>
+</body>
+
+</html>

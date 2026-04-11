@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Tarot Reading</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">TAROT READER<span>✦</span></div>
+        <nav>
+            <ul>
+                <li><a href="/xem-tarot">XEM TAROT</a></li>
+                <li><a href="/">Ý NGHĨA LÁ BÀI</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page-container">
+        <h1>BÓI TAROT NGAY</h1>
+        <p>Tập trung ý niệm. Điền thông tin bên dưới để vũ trụ phản hồi bạn.</p>
+        
+        <form action="/api/read" method="POST">
+            <div class="form-group">
+                <label for="name">Tên của bạn</label>
+                <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn">
+            </div>
+            <div class="form-group">
+                <label for="question">Mối quan tâm / Câu hỏi</label>
+                <textarea id="question" name="question" rows="4" required placeholder="Bạn đang thắc mắc vấn đề gì trong hiện tại?"></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="margin-top:20px">GỬI YÊU CẦU LÊN VŨ TRỤ</button>
+        </form>
+        <br>
+        <a href="/" style="display:inline-block; margin-top: 20px; font-size: 13px;">← QUAY LẠI TRANG CHỦ</a>
+    </div>
+</body>
+</html>
