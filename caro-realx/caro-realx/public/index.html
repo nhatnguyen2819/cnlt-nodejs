@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caro RealX - Multiplayer Gomoku</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<!-- ===== LOGIN SCREEN ===== -->
+<div id="login-screen" class="screen">
+  <div class="login-box">
+    <div class="logo">CARO<br>REALX</div>
+    <div class="logo-sub">Online Multiplayer Gomoku</div>
+    <div class="login-card">
+      <div class="input-group">
+        <input type="text" id="username-input" placeholder="Nhập tên người chơi..." maxlength="20" autocomplete="off">
+      </div>
+      <button class="btn-primary" onclick="App.login()">⚡ VÀO CHƠI</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN SCREEN ===== -->
+<div id="main-screen" class="screen hidden">
+  <div class="main-layout">
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header-logo">CARO REALX</div>
+      <div class="nav-tabs">
+        <button class="nav-tab active" onclick="App.showView('lobby')">🏠 Sảnh</button>
+        <button class="nav-tab" onclick="App.showLeaderboard()">🏆 Bảng xếp hạng</button>
+      </div>
+      <div class="header-player" style="margin-left:auto; display:flex; align-items:center; gap:10px;">
+        <div class="online-dot"></div>
+        <div class="avatar-circle" id="header-avatar">?</div>
+        <span id="header-username" style="font-size:0.85rem; font-weight:600;"></span>
+        <button class="btn-secondary" style="padding:6px 12px; font-size:0.75rem;" onclick="App.logout()">Thoát</button>
+      </div>
+    </header>
+
+    <!-- LEFT: ROOM LIST -->
+    <div class="panel-left">
+      <div class="panel-title">📡 Phòng đang chờ</div>
+      <div class="room-list" id="room-list">
+        <div class="room-empty">Chưa có phòng nào.<br>Hãy tạo phòng mới!</div>
+      </div>
+      <button class="create-room-btn" onclick="App.openCreateRoom()">+ Tạo phòng mới</button>
+    </div>
+
+    <!-- CENTER: GAME / LOBBY / LEADERBOARD -->
+    <div class="panel-center">
+
+      <!-- LOBBY VIEW -->
+      <div id="lobby-view">
+        <div class="lobby-title">⚡ Sẵn sàng chiến?</div>
+        <div class="lobby-subtitle">Tạo phòng hoặc vào phòng có sẵn bên trái</div>
+        <div class="lobby-actions">
+          <button class="btn-primary" onclick="App.openCreateRoom()">🎮 Tạo phòng</button>
+        </div>
+      </div>
+
+      <!-- GAME VIEW -->
+      <div id="game-view">
+        <div class="game-info">
+          <div class="player-card p1" id="p1-card">
+            <div class="player-symbol symbol-X" id="p1-symbol">X</div>
+            <div>
+              <div class="player-name" id="p1-name">—</div>
+              <div style="font-size:0.7rem; color:var(--text-secondary);">Người chơi 1</div>
+            </div>
+          </div>
+          <div>
+            <div class="turn-indicator" id="turn-indicator">CHỜ...</div>
+            <div style="font-family:'Orbitron'; font-size:0.5rem; color:var(--text-secondary); letter-spacing:1px; text-align:center;" id="room-id-display"></div>
+          </div>
+          <div class="player-card p2" id="p2-card">
+            <div class="player-symbol symbol-O" id="p2-symbol">O</div>
+            <div>
+              <div class="player-name" id="p2-name">—</div>
+              <div style="font-size:0.7rem; color:var(--text-secondary);">Người chơi 2</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-wrapper">
+          <div id="game-board"></div>
+        </div>
+
+        <div class="game-controls">
+          <button class="btn-danger" onclick="App.surrender()">🏳 Đầu hàng</button>
+        </div>
+      </div>
+
+      <!-- LEADERBOARD VIEW -->
+      <div id="leaderboard-view">
+        <div class="leaderboard-title">🏆 Bảng Xếp Hạng</div>
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Tên</th>
+              <th>Thắng</th>
+              <th>Thua</th>
+              <th>Hòa</th>
+              <th>Tổng</th>
+            </tr>
+          </thead>
+          <tbody id="lb-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- RIGHT: CHAT -->
+    <div class="panel-right">
+      <div class="panel-title">💬 Chat</div>
+      <div class="chat-messages" id="chat-messages"></div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Nhắn tin..." maxlength="200" autocomplete="off">
+        <button class="chat-send-btn" onclick="App.sendChat()">➤</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODALS ===== -->
+<!-- Create Room Modal -->
+<div class="modal-overlay hidden" id="create-room-modal">
+  <div class="modal-box">
+    <div class="modal-title" style="color:var(--neon-cyan); font-size:1.1rem; margin-bottom:20px;">TẠO PHÒNG MỚI</div>
+    <div class="modal-form">
+      <label class="modal-label">Tên phòng</label>
+      <input type="text" class="modal-input" id="room-name-input" placeholder="VD: Phòng Pro Max" maxlength="30">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="App.closeModal('create-room-modal')">Hủy</button>
+      <button class="btn-primary" style="width:auto; padding:12px 24px;" onclick="App.createRoom()">Tạo phòng</button>
+    </div>
+  </div>
+</div>
+
+<!-- Game Over Modal -->
+<div class="modal-overlay hidden" id="gameover-modal">
+  <div class="modal-box">
+    <div class="modal-title" id="go-title">KẾT THÚC</div>
+    <div class="modal-desc" id="go-desc"></div>
+    <div class="modal-actions">
+      <button class="btn-primary" style="width:auto; padding:12px 24px;" onclick="App.backToLobby()">🏠 Về sảnh</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast-container" id="toast-container"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/game.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caro RealX - Multiplayer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans antialiased h-screen overflow-hidden flex flex-col">
+    <!-- Navbar -->
+    <header class="bg-gray-800 shadow-md py-4 px-6 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-teal-400 tracking-wider">CARO <span class="text-white">REALX</span></h1>
+        <div id="userInfo" class="hidden flex items-center space-x-3">
+            <span id="displayUsername" class="font-medium text-gray-300"></span>
+            <div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center text-sm font-bold" id="userAvatar"></div>
+        </div>
+    </header>
+
+    <main class="flex-1 overflow-hidden relative">
+        <!-- Màn hình Đăng nhập -->
+        <div id="loginScreen" class="absolute inset-0 flex items-center justify-center z-50 bg-gray-900">
+            <div class="bg-gray-800 p-8 rounded-xl shadow-2xl w-full max-w-md text-center border border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-teal-400 glow-text">Enter the Arena</h2>
+                <input type="text" id="usernameInput" placeholder="Enter your username" 
+                    class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:border-teal-400 focus:ring-1 focus:ring-teal-400 mb-4 transition-all"
+                    autocomplete="off">
+                <button id="loginBtn" class="w-full bg-teal-500 hover:bg-teal-400 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-[0_0_15px_rgba(20,184,166,0.5)]">
+                    Join Game
+                </button>
+            </div>
+        </div>
+
+        <!-- Màn hình Lobby -->
+        <div id="lobbyScreen" class="hidden absolute inset-0 flex flex-col items-center justify-center p-6">
+            <div class="w-full max-w-4xl bg-gray-800 rounded-xl shadow-2xl p-6 border border-gray-700 flex flex-col h-[80vh]">
+                <div class="flex justify-between items-center mb-6 border-b border-gray-700 pb-4">
+                    <h2 class="text-2xl font-bold text-teal-400">Game Lobby</h2>
+                    <button id="createRoomBtn" class="bg-teal-600 hover:bg-teal-500 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                        + Create Room
+                    </button>
+                </div>
+                <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+                    <div id="roomList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Room items will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Màn hình Game -->
+        <div id="gameScreen" class="hidden absolute inset-0 flex flex-col md:flex-row p-4 gap-4 h-full">
+            <!-- Sidebar Left: Info -->
+            <div class="w-full md:w-64 bg-gray-800 rounded-xl p-4 flex flex-col border border-gray-700">
+                <div class="flex justify-between items-center mb-4">
+                    <button id="leaveRoomBtn" class="text-gray-400 hover:text-white transition-colors text-sm flex items-center">
+                        ← Leave Room
+                    </button>
+                    <span id="roomNameDisplay" class="font-bold text-teal-400 text-sm bg-gray-700 px-2 py-1 rounded">Room ID</span>
+                </div>
+                
+                <div class="space-y-4 flex-1">
+                    <div class="bg-gray-700 rounded-lg p-3 player-card shadow-inner" id="playerXCard">
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-400 font-bold text-xl">X</span>
+                            <span id="playerXName" class="font-medium text-gray-300">Waiting...</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-center text-gray-500 font-bold text-sm">VS</div>
+                    <div class="bg-gray-700 rounded-lg p-3 player-card shadow-inner" id="playerOCard">
+                        <div class="flex items-center justify-between">
+                            <span class="text-red-400 font-bold text-xl">O</span>
+                            <span id="playerOName" class="font-medium text-gray-300">Waiting...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <div id="gameStatus" class="text-lg font-bold text-yellow-400 mb-2">Waiting for players...</div>
+                    <button id="restartBtn" class="hidden w-full bg-gray-600 hover:bg-gray-500 text-white py-2 rounded-lg transition-colors">Restart Game</button>
+                </div>
+            </div>
+
+            <!-- Main Board -->
+            <div class="flex-1 bg-gray-800 rounded-xl flex items-center justify-center p-4 border border-gray-700 relative shadow-inner overflow-auto">
+                <canvas id="gameCanvas" width="600" height="600" class="shadow-2xl cursor-pointer bg-gray-750"></canvas>
+            </div>
+
+            <!-- Sidebar Right: Chat -->
+            <div class="w-full md:w-80 bg-gray-800 rounded-xl flex flex-col border border-gray-700 overflow-hidden">
+                <div class="bg-gray-700 py-3 px-4 font-bold border-b border-gray-600">Room Chat</div>
+                <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 custom-scrollbar text-sm">
+                    <!-- Chat messages -->
+                </div>
+                <div class="p-3 bg-gray-750 border-t border-gray-700">
+                    <form id="chatForm" class="flex gap-2">
+                        <input type="text" id="chatInput" placeholder="Type a message..." 
+                            class="flex-1 bg-gray-700 text-white px-3 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-teal-500 text-sm" autocomplete="off">
+                        <button type="submit" class="bg-teal-600 hover:bg-teal-500 text-white px-4 py-2 rounded-lg transition-colors text-sm font-semibold">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/game.js"></script>
+    <script src="/js/socket.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
